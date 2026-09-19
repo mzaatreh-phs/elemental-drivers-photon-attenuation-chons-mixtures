@@ -1,0 +1,18 @@
+# CHON recalculation  label=s1 Mix_1 E=3 MeV  1.0 cm fixed  events=1e6
+/control/verbose 1
+/run/verbose 1
+/random/setSeeds 1012507 1012508
+/det/clearMaterial
+/det/setMaterialName Mix_1
+/det/setDensity 1.334335 g/cm3
+/det/setThickness 1.0 cm
+/det/addElement C 0.5142635364
+/det/addElement H 0.0739247427
+/det/addElement O 0.3200193908
+/det/addElement N 0.0823769536
+/det/addElement S 0.0094153765
+/run/setCut 0.001 mm
+/det/createMaterial
+/scan/setEnergyGrid 3
+/scan/setEvents 1000000
+/run/initialize
