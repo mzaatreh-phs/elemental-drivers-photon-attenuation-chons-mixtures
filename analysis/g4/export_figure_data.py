@@ -16,6 +16,7 @@ SENS = R + '/analysis/sensitivity/'; BB = R + '/analysis/broadbeam/'
 # start clean: remove previously exported figure folders / old flat files (all regenerated below)
 for f in os.listdir(DEST) if os.path.isdir(DEST) else []:
     p = DEST + f
+    if os.path.isdir(p) and f in ('fig_elemental_contrast', 'fig_validation_residuals'): continue      # written by origin_style/make_new_figures.py
     if os.path.isdir(p): shutil.rmtree(p)
     elif f.endswith('.csv') or f.endswith('.xlsx') or f == 'README.txt': os.remove(p)
 os.makedirs(DEST, exist_ok=True)

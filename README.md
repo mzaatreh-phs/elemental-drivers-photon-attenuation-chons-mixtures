@@ -26,6 +26,9 @@ Everything under `raw/` and `raw_exchange/` is unmodified simulation output. Poo
 | Geant4 exchange confirmation (Sec. 3.2) | `sensitivity/exchange_confirmation.py`, `sensitivity/gen_exchange_jobs.py` | `sensitivity/exchange_confirmation.csv` |
 | Equal-thickness / equal-areal-mass broad-beam response (Fig. 9, Sec. 3.7) | `broadbeam/equal_thickness.py` | `broadbeam/` |
 | Moisture sensitivity: 10 wt% water added to every mixture (Sec. 3.8, Table 8) | `moisture/moisture_sensitivity.py`, `moisture/moisture_patch.py` | `moisture/` |
+| Elemental contrast and validation-residual figures (Figs. of Sec. 3.1-3.2) | `origin_style/make_new_figures.py` | `figure_data/fig_elemental_contrast/`, `figure_data/fig_validation_residuals/` |
+| Scenario definitions, residual correlations and dominant-element tables (Tables of Sec. 2.5/3.2) | `sensitivity/scenario_correlations.py`, `sensitivity/scenario_tables_patch.py` | `sensitivity/scenario_correlations.csv` |
+| Scoping survey of low-Z literature used to position the article | `literature_survey/survey.py` | `literature_survey/LITERATURE_SURVEY_2026-09-21.md` (approximate keyword statistics, not a systematic review) |
 | Plotted data of every figure | `g4/export_figure_data.py` | `figure_data/` |
 | Figures in the style of the article | `origin_style/make_core_figures.py`, `origin_style/make_other_figures.py` | (images not included) |
 | Numbers quoted in the Results text | `results_text/numbers_*.py` | printed values |

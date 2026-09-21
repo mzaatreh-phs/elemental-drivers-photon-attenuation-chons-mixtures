@@ -1,0 +1,3 @@
+figs_origin_style/fig_validation_residuals.png - Geant4 vs XCOM signed MAC deviation. Two panels, x log axis (Energy_MeV).
+PANEL A (left): signed deviation (%) of each mixture (10 series) -> panelA_signed_deviation_per_mixture_percent.csv, error bars 1 sigma counting uncertainty -> panelA_errorbars_1sigma_percent.csv; dotted vertical lines = the six validation energies.
+PANEL B (right): mean deviation over the ten mixtures at each energy with its standard error sqrt(sum u_i^2)/10 (counting uncertainty only; XCOM uncertainty not included) -> panelB_mean_over_mixtures_percent.csv. Dashed line = overall mean over all 380 points (-0.286 %).

@@ -1,0 +1,3 @@
+figs_origin_style/fig_elemental_contrast.png - XCOM mixture rule, base composition = mean of the ten mixtures. Two panels, x log axis (Energy_MeV).
+PANEL A (left, symlog y with linear range +-0.3): y = % change of MAC per one percentage point of mass fraction (+1 wt%) of the element replacing carbon -> panelA_MAC_change_per_percentage_point_replacing_C_percent.csv (curves H, N, O, S). Horizontal line at 0.
+PANEL B (right, linear y): sensitivity index S_i (%) = |beta_i| / sum_j |beta_j| in the reduced-collinearity ensemble (a normalized absolute standardized sensitivity, NOT a variance share) -> panelB_sensitivity_index_percent.csv (curves H, N, O, S).

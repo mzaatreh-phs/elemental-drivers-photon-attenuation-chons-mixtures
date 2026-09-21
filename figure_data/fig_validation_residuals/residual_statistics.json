@@ -1,0 +1,14 @@
+{
+ "overall_mean": -0.28573202574239476,
+ "overall_se": 0.014706766319215097,
+ "mean_min": -0.7454708969999999,
+ "mean_max": 0.6270486519999999,
+ "E_at_min": 0.01,
+ "E_at_max": 0.02,
+ "n_energies_abs_mean_gt_2se": 32,
+ "n_energies": 38,
+ "n_energies_negative": 36,
+ "mean_low_E_lt0.05": -0.018526127913999983,
+ "mean_E_ge_0.3": -0.30794301692522225,
+ "median_se": 0.07347957409529293
+}
