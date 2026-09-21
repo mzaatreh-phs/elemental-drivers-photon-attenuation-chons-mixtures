@@ -1,0 +1,18 @@
+# CHON controlled exchange dN E=10.0 MeV
+/control/verbose 1
+/run/verbose 1
+/random/setSeeds 4002077 4002078
+/det/clearMaterial
+/det/setMaterialName dN
+/det/setDensity 1.352033 g/cm3
+/det/setThickness 1.0 cm
+/det/addElement C 0.4566366479
+/det/addElement H 0.0726937597
+/det/addElement N 0.1229036039
+/det/addElement O 0.3394333802
+/det/addElement S 0.0083326082
+/run/setCut 0.001 mm
+/det/createMaterial
+/scan/setEnergyGrid 10.0
+/scan/setEvents 1000000
+/run/initialize

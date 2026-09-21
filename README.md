@@ -1,19 +1,44 @@
-# CHON shielding: raw Geant4 narrow-beam attenuation data
+# Data and analysis for: Elemental Drivers of Photon Attenuation Regimes in Low-Z CHONS Biomolecular Mixtures
 
-Raw output of the Geant4 campaign for ten CHONS biomolecular mixtures (alpha-cellulose, bovine serum albumin, sorbitol, stearic acid).
-Produced on 2026-09-19 (16:34-21:47 UTC+03:00). **Private repository, pre-publication.** License and citation to be added by the authors before this repository is made public.
+Supporting data for the article *Elemental Drivers of Photon Attenuation Regimes in Low-Z CHONS Biomolecular Mixtures: Geant4 Attenuation and Geometric-Progression Buildup* (M. Y. AlZaatreh and N. Z. Noor Azman). Ten idealized mixtures of alpha-cellulose, bovine serum albumin (BSA), sorbitol and stearic acid (C, H, O, N and 0-1.5 wt% S) were simulated with Geant4 over 0.01-15 MeV.
+
+**Status: private repository, pre-publication.** A license and a citation entry (README and `CITATION.cff`) must be added by the authors, and a release should be archived with a DOI, before the repository is made public.
 
 ## What is here
-| Path | Content |
-|---|---|
-| `raw/<job>/MAC_results_Mix_<m>.csv` | one-row result file written by the simulation for that job |
-| `raw/<job>/run.log` | full Geant4 console log of that job |
-| `macros/<job>.mac` | the exact macro that was run (material, density, thickness, energy, seed) |
-| `SHA256SUMS.txt` | SHA-256 checksums of every file above |
+| Path | Content | Raw or derived |
+|---|---|---|
+| `raw/<job>/`, `macros/<job>.mac` | Main campaign: 760 Geant4 jobs (10 mixtures x 38 energies x 2 seeds x 10^6 photons): result CSV, console log, exact macro | raw |
+| `raw_exchange/<job>/`, `macros_exchange/` | Elemental-exchange campaign: 96 Geant4 jobs (base composition and five variants x 8 energies x 2 seeds x 10^6 photons) | raw |
+| `inputs/` | Exact elemental compositions, densities and energy grids used to build the macros (`inputs_exact.json`, `densities_fixed.json`) and the exchange design (`exchange_design.json`) | input |
+| `analysis/` | Python/shell scripts that pool the seeds, compute uncertainties, XCOM/G-P quantities, tables, sensitivity analysis and figures, together with their derived result tables (`*/results`, `xcom/`, `sensitivity/`, `broadbeam/`) | scripts + derived |
+| `figure_data/` | The numbers behind every figure of the article, one folder per figure (see its README), and the Excel workbook of all sheets | derived |
+| `SHA256SUMS.txt` | SHA-256 checksum of every file in this repository | integrity |
 
-Nothing in this repository is derived: no pooled values, tables or figures. Derived quantities are computed from the counts as described below.
+Everything under `raw/` and `raw_exchange/` is unmodified simulation output. Pooled values, tables and figure data are derived and can be regenerated from the raw counts with the scripts in `analysis/`.
 
-## Job naming
+## Which script produces what
+| Article item | Script (in `analysis/`) | Output |
+|---|---|---|
+| Pooled MAC, uncertainties, seed check, validation (Table 3, Sec. 3.1) | `g4/analyze.py`, `g4/g4analysis.py`, `g4/verify_independent.py` (pure-Python re-derivation) | `g4/results/` |
+| Spread and correlation tables (Tables 4-5) | `g4/make_tables.py` | `g4/results/table4_new.tex`, `table5_new.tex` |
+| Zeff, process fractions, crossover, G-P exposure buildup (Table 7, Figs 2, 5, 8, 9) | `xcom_set.py` | `xcom/` |
+| Elemental sensitivity, decorrelated ensemble, range test (Table 6, Sec. 3.2) | `sensitivity/elemental_sensitivity.py`, `sensitivity/range_test.py` | `sensitivity/` |
+| Geant4 exchange confirmation (Sec. 3.2) | `sensitivity/exchange_confirmation.py`, `sensitivity/gen_exchange_jobs.py` | `sensitivity/exchange_confirmation.csv` |
+| Equal-thickness / equal-areal-mass broad-beam response (Fig. 9, Sec. 3.7) | `broadbeam/equal_thickness.py` | `broadbeam/` |
+| Plotted data of every figure | `g4/export_figure_data.py` | `figure_data/` |
+| Figures in the style of the article | `origin_style/make_core_figures.py`, `origin_style/make_other_figures.py` | (images not included) |
+| Numbers quoted in the Results text | `results_text/numbers_*.py` | printed values |
+
+## Reproducing the analysis
+- The scripts contain absolute paths of the authors' workstation (`~/CHON/recalc_2026-09-19/...`); adjust the path constants at the top of each script (`R`, `A`, `DEST`, `FD`) before running.
+- Python 3 with numpy, scipy, matplotlib and openpyxl.
+- `xcom_set.py` and `broadbeam/equal_thickness.py` need **EpiXS-CLI**, the authors' command-line implementation of the EpiXS algorithm (compiled NIST XCOM v3.1 Fortran cross sections plus ANSI/ANS-6.4.3-1991 G-P coefficients). It is not part of this repository; its XCOM- and G-P-derived outputs are included in `analysis/xcom/` and `analysis/broadbeam/`.
+- The Geant4 executable was built from the authors' local `brks` project (source snapshot identified below); the macros in this repository fully define every run.
+
+## Elemental-exchange campaign (`raw_exchange/`)
+Job naming `<seedset>_<variant>_E<idx>`: seed set `s1`/`s2`; variant `base` (mean composition of the ten mixtures, density 1.352033 g/cm3), `dO` (+5 wt% O replacing C), `dN` (+5 wt% N), `dS` (+1.5 wt% S), `dH` (+1.5 wt% H) or `dALL` (all four together); energy index `00`-`07` = 0.01, 0.02, 0.03, 0.05, 0.1, 0.3, 1, 10 MeV. Setup and counting are identical to the main campaign. The exact compositions are in `inputs/exchange_design.json` and in each macro.
+
+## Main campaign: job naming
 `<seedset>_Mix_<m>_E<idx>`, for example `s1_Mix_5_E08`: seed set `s1` or `s2` (two independent random-number streams), mixture number `m` (1-10), energy index `idx` (table below). 10 mixtures x 38 energies x 2 seed sets = **760 jobs**, all completed (0 failed).
 
 ## Simulation setup (identical for all jobs)
