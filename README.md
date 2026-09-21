@@ -25,6 +25,7 @@ Everything under `raw/` and `raw_exchange/` is unmodified simulation output. Poo
 | Elemental sensitivity, reduced-collinearity ensemble, range test (Table 6, Sec. 3.2) | `sensitivity/elemental_sensitivity.py`, `sensitivity/range_test.py` | `sensitivity/` |
 | Geant4 exchange confirmation (Sec. 3.2) | `sensitivity/exchange_confirmation.py`, `sensitivity/gen_exchange_jobs.py` | `sensitivity/exchange_confirmation.csv` |
 | Equal-thickness / equal-areal-mass broad-beam response (Fig. 9, Sec. 3.7) | `broadbeam/equal_thickness.py` | `broadbeam/` |
+| Moisture sensitivity: 10 wt% water added to every mixture (Sec. 3.8, Table 8) | `moisture/moisture_sensitivity.py`, `moisture/moisture_patch.py` | `moisture/` |
 | Plotted data of every figure | `g4/export_figure_data.py` | `figure_data/` |
 | Figures in the style of the article | `origin_style/make_core_figures.py`, `origin_style/make_other_figures.py` | (images not included) |
 | Numbers quoted in the Results text | `results_text/numbers_*.py` | printed values |
