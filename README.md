@@ -22,7 +22,7 @@ Everything under `raw/` and `raw_exchange/` is unmodified simulation output. Poo
 | Pooled MAC, uncertainties, seed check, validation (Table 3, Sec. 3.1) | `g4/analyze.py`, `g4/g4analysis.py`, `g4/verify_independent.py` (pure-Python re-derivation) | `g4/results/` |
 | Spread and correlation tables (Tables 4-5) | `g4/make_tables.py` | `g4/results/table4_new.tex`, `table5_new.tex` |
 | Zeff, process fractions, crossover, G-P exposure buildup (Table 7, Figs 2, 5, 8, 9) | `xcom_set.py` | `xcom/` |
-| Elemental sensitivity, decorrelated ensemble, range test (Table 6, Sec. 3.2) | `sensitivity/elemental_sensitivity.py`, `sensitivity/range_test.py` | `sensitivity/` |
+| Elemental sensitivity, reduced-collinearity ensemble, range test (Table 6, Sec. 3.2) | `sensitivity/elemental_sensitivity.py`, `sensitivity/range_test.py` | `sensitivity/` |
 | Geant4 exchange confirmation (Sec. 3.2) | `sensitivity/exchange_confirmation.py`, `sensitivity/gen_exchange_jobs.py` | `sensitivity/exchange_confirmation.csv` |
 | Equal-thickness / equal-areal-mass broad-beam response (Fig. 9, Sec. 3.7) | `broadbeam/equal_thickness.py` | `broadbeam/` |
 | Plotted data of every figure | `g4/export_figure_data.py` | `figure_data/` |
