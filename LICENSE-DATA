@@ -1,0 +1,19 @@
+Data license: Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 Mohammad Yousef Suleiman AlZaatreh and Nurul Zahirah Noor Azman
+
+The simulation outputs, macros, input compositions, derived result tables and
+figure data in this repository (the folders raw/, raw_exchange/, macros/,
+macros_exchange/, inputs/, figure_data/, and the CSV/JSON/XLSX result files
+under analysis/) are licensed under the Creative Commons Attribution 4.0
+International License. You may share and adapt them for any purpose, provided
+that you give appropriate credit by citing the associated article and this
+repository.
+
+Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+The code (analysis scripts and epixs_cli/) is licensed under the MIT License
+(see LICENSE). Third-party components keep their own terms: the NIST XCOM v3.1
+program and data in epixs_cli/vendor/xcom/ are a work of the U.S. Government
+distributed by NIST, and the G-P coefficients in epixs_cli/epixs/gp_data.py are
+taken from ANSI/ANS-6.4.3-1991.

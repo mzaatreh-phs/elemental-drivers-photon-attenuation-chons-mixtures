@@ -1,8 +1,8 @@
-# Data and analysis for: Elemental Drivers of Photon Attenuation Regimes in Low-Z CHONS Biomolecular Mixtures
+# Data and analysis for: Lead-Free CHONS-Based Biomolecular Mixtures for Photon Attenuation
 
-Supporting data for the article *Elemental Drivers of Photon Attenuation Regimes in Low-Z CHONS Biomolecular Mixtures: Geant4 Attenuation and Geometric-Progression Buildup* (M. Y. AlZaatreh and N. Z. Noor Azman). Ten idealized mixtures of alpha-cellulose, bovine serum albumin (BSA), sorbitol and stearic acid (C, H, O, N and 0-1.5 wt% S) were simulated with Geant4 over 0.01-15 MeV.
+Supporting data and code for the article *Lead-Free CHONS-Based Biomolecular Mixtures for Photon Attenuation: A Geant4 Monte Carlo and Pearson Correlation Investigation* (M. Y. AlZaatreh and N. Z. Noor Azman). Ten idealized mixtures of alpha-cellulose, bovine serum albumin (BSA), sorbitol and stearic acid (C, H, O, N and 0-1.5 wt% S) were simulated with Geant4 over 0.01-15 MeV.
 
-**Status: private repository, pre-publication.** A license and a citation entry (README and `CITATION.cff`) must be added by the authors, and a release should be archived with a DOI, before the repository is made public.
+**License:** code (analysis scripts and `epixs_cli/`) under the MIT License (`LICENSE`); data, macros and figure data under CC BY 4.0 (`LICENSE-DATA`). Please cite the article when using this material.
 
 ## What is here
 | Path | Content | Raw or derived |
@@ -20,15 +20,15 @@ Everything under `raw/` and `raw_exchange/` is unmodified simulation output. Poo
 ## Which script produces what
 | Article item | Script (in `analysis/`) | Output |
 |---|---|---|
-| Pooled MAC, uncertainties, seed check, validation (Table 3, Sec. 3.1) | `g4/analyze.py`, `g4/g4analysis.py`, `g4/verify_independent.py` (pure-Python re-derivation) | `g4/results/` |
-| Spread and correlation tables (Tables 4-5) | `g4/make_tables.py` | `g4/results/table4_new.tex`, `table5_new.tex` |
-| Zeff, process fractions, crossover, G-P exposure buildup (Table 7, Figs 2, 5, 8, 9) | `xcom_set.py` | `xcom/` |
-| Elemental sensitivity, reduced-collinearity ensemble, range test (Table 6, Sec. 3.2) | `sensitivity/elemental_sensitivity.py`, `sensitivity/range_test.py` | `sensitivity/` |
-| Geant4 exchange confirmation (Sec. 3.2) | `sensitivity/exchange_confirmation.py`, `sensitivity/gen_exchange_jobs.py` | `sensitivity/exchange_confirmation.csv` |
-| Equal-thickness / equal-areal-mass broad-beam response (Fig. 9, Sec. 3.7) | `broadbeam/equal_thickness.py` | `broadbeam/` |
-| Moisture sensitivity: 10 wt% water added to every mixture (Sec. 3.8, Table 8) | `moisture/moisture_sensitivity.py`, `moisture/moisture_patch.py` | `moisture/` |
-| Elemental contrast and validation-residual figures (Figs. of Sec. 3.1-3.2) | `origin_style/make_new_figures.py` | `figure_data/fig_elemental_contrast/`, `figure_data/fig_validation_residuals/` |
-| Scenario definitions, residual correlations and dominant-element tables (Tables of Sec. 2.5/3.2) | `sensitivity/scenario_correlations.py`, `sensitivity/scenario_tables_patch.py` | `sensitivity/scenario_correlations.csv` |
+| Pooled MAC, uncertainties, seed check, and validation against XCOM | `g4/analyze.py`, `g4/g4analysis.py`, `g4/verify_independent.py` (pure-Python re-derivation) | `g4/results/` |
+| Inter-mixture spread and Pearson correlation tables | `g4/make_tables.py` | `g4/results/table4_new.tex`, `table5_new.tex` |
+| Zeff, process fractions, photoelectric-incoherent crossover, and G-P exposure buildup | `xcom_set.py` | `xcom/` |
+| Carbon-referenced elemental contrasts, reduced-collinearity ensemble, and range test | `sensitivity/elemental_sensitivity.py`, `sensitivity/range_test.py` | `sensitivity/` |
+| Geant4 elemental-exchange confirmation | `sensitivity/exchange_confirmation.py`, `sensitivity/gen_exchange_jobs.py` | `sensitivity/exchange_confirmation.csv` |
+| Equal-thickness and equal-areal-mass broad-beam response | `broadbeam/equal_thickness.py` | `broadbeam/` |
+| Moisture sensitivity with 10 wt% water added to every mixture (supplementary analysis, not reported in the article) | `moisture/moisture_sensitivity.py`, `moisture/moisture_patch.py` | `moisture/` |
+| Elemental contrast and validation-residual figures | `origin_style/make_new_figures.py` | `figure_data/fig_elemental_contrast/`, `figure_data/fig_validation_residuals/` |
+| Composition scenarios, residual correlations, and dominant-element tables | `sensitivity/scenario_correlations.py`, `sensitivity/scenario_tables_patch.py` | `sensitivity/scenario_correlations.csv` |
 | Scoping survey of low-Z literature used to position the article | `literature_survey/survey.py` | `literature_survey/LITERATURE_SURVEY_2026-09-21.md` (approximate keyword statistics, not a systematic review) |
 | Plotted data of every figure | `g4/export_figure_data.py` | `figure_data/` |
 | Figures in the style of the article | `origin_style/make_core_figures.py`, `origin_style/make_other_figures.py` | (images not included) |
