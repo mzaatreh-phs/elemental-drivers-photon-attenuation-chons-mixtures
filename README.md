@@ -12,6 +12,7 @@ Supporting data for the article *Elemental Drivers of Photon Attenuation Regimes
 | `inputs/` | Exact elemental compositions, densities and energy grids used to build the macros (`inputs_exact.json`, `densities_fixed.json`) and the exchange design (`exchange_design.json`) | input |
 | `analysis/` | Python/shell scripts that pool the seeds, compute uncertainties, XCOM/G-P quantities, tables, sensitivity analysis and figures, together with their derived result tables (`*/results`, `xcom/`, `sensitivity/`, `broadbeam/`) | scripts + derived |
 | `figure_data/` | The numbers behind every figure of the article, one folder per figure (see its README), and the Excel workbook of all sheets | derived |
+| `epixs_cli/` | EpiXS-CLI, the authors' terminal implementation of the EpiXS algorithm used for the XCOM coefficients, Z_eff, Z_eq and G-P buildup factors, with the ten mixtures of the article as ready-to-run examples (see `epixs_cli/README.md`) | software |
 | `SHA256SUMS.txt` | SHA-256 checksum of every file in this repository | integrity |
 
 Everything under `raw/` and `raw_exchange/` is unmodified simulation output. Pooled values, tables and figure data are derived and can be regenerated from the raw counts with the scripts in `analysis/`.
@@ -36,7 +37,7 @@ Everything under `raw/` and `raw_exchange/` is unmodified simulation output. Poo
 ## Reproducing the analysis
 - The scripts contain absolute paths of the authors' workstation (`~/CHON/recalc_2026-09-19/...`); adjust the path constants at the top of each script (`R`, `A`, `DEST`, `FD`) before running.
 - Python 3 with numpy, scipy, matplotlib and openpyxl.
-- `xcom_set.py` and `broadbeam/equal_thickness.py` need **EpiXS-CLI**, the authors' command-line implementation of the EpiXS algorithm (compiled NIST XCOM v3.1 Fortran cross sections plus ANSI/ANS-6.4.3-1991 G-P coefficients). It is not part of this repository; its XCOM- and G-P-derived outputs are included in `analysis/xcom/` and `analysis/broadbeam/`.
+- `xcom_set.py` and `broadbeam/equal_thickness.py` need **EpiXS-CLI**, the authors' command-line implementation of the EpiXS algorithm (compiled NIST XCOM v3.1 Fortran cross sections plus ANSI/ANS-6.4.3-1991 G-P coefficients). It is included in `epixs_cli/`; see `epixs_cli/README.md` for terminal usage. Point the `sys.path` lines at the top of these two scripts to that folder. Its XCOM- and G-P-derived outputs are also included in `analysis/xcom/` and `analysis/broadbeam/`.
 - The Geant4 executable was built from the authors' local `brks` project (source snapshot identified below); the macros in this repository fully define every run.
 
 ## Elemental-exchange campaign (`raw_exchange/`)

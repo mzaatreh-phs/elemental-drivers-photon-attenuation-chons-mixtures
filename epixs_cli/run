@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Launches the EpiXS-CLI guided menu. Run from anywhere: ./run
+set -e
+cd "$(dirname "$0")"
+if [ ! -x vendor/xcom/xcom ]; then
+    echo "XCOM binary not built yet -- compiling..." >&2
+    (cd vendor/xcom && gfortran -w -std=legacy -o xcom XCOM.f)
+fi
+if [ -n "$1" ] && [ -f "$1" ]; then
+    exec python3 epixs/macro.py "$@"
+fi
+exec python3 epixs/cli.py "$@"

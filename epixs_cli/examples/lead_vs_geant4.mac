@@ -1,0 +1,14 @@
+# Theoretical (ANSI/ANS-6.4.3 G-P) EBF/EABF for Lead, on the same energy x
+# depth grid as the Geant4 BuildupFactor project's shallow+deep MC scans,
+# for direct row-by-row comparison.
+# Run: ./run examples/lead_vs_geant4.mac
+
+/material/name Lead
+/material/density 11.35
+/material/formula Pb
+
+/energies 0.015,0.0200028,0.0266742,0.0355706,0.0474342,0.0632545,0.0843512,0.112484,0.15,0.200028,0.266742,0.355706,0.474342,0.632545,0.843512,1.12484,1.5,2.00028,2.66742,3.55706,4.74342,6.32545,8.43512,11.2484,15
+/depths 1,2,3,4,5,6,7,8,9,10,15,20,25,30,35,40
+
+/output/ebf lead_ebf_theoretical.csv
+/output/eabf lead_eabf_theoretical.csv

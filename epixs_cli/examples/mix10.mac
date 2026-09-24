@@ -1,0 +1,14 @@
+# CHON project, Mixture 10: elemental mass fractions and additive-volume density
+# exactly as in Table 2 of the article (anhydrous constituents).
+# Run:   ./run examples/mix10.mac
+/material/name MIX10
+/material/density 1.414767
+/material/addElement C 0.471128
+/material/addElement H 0.070237
+/material/addElement O 0.458635
+/energies 0.015,0.02,0.03,0.04,0.05,0.06,0.08,0.1,0.15,0.2,0.3,0.356,0.4,0.5,0.511,0.6,0.662,0.8,1,1.173,1.33,1.5,2,2.51,3,4,5,6,7,8,9,10,11,12,13,14,15
+/depths 5,10,15,20,25,30,35,40
+/output/massAttenuation mix10_mass_attenuation.csv
+/output/hvl mix10_hvl_tvl_mfp.csv
+/output/zeff mix10_zeff_zeq.csv
+/output/ebf mix10_ebf.csv

@@ -1,0 +1,14 @@
+# Single element example, using /material/formula instead of addElement.
+# Run: ./run examples/lead.mac
+
+/material/name Lead
+/material/density 11.35
+/material/formula Pb
+
+/energies 0.03,0.1,0.4,1.0,10.0
+/depths 1,5,10,20,40
+
+/output/massAttenuation lead_mass_attenuation.csv
+/output/hvl lead_hvl_tvl_mfp.csv
+/output/ebf lead_ebf.csv
+/output/eabf lead_eabf.csv

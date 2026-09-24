@@ -1,0 +1,39 @@
+# Sample macro file -- template for specifying a material and the
+# quantities to compute for it, without going through the interactive menu.
+#
+# Run:   ./run sample.mac
+#
+# Copy this file, edit the values below, and point /output/ lines at
+# whatever filenames you want. See examples/*.mac for more worked examples
+# (all ten CHON project mixtures, plus a single-element case) and
+# epixs/macro.py's docstring for the full directive reference.
+
+# --- Material -----------------------------------------------------------
+# Option A: a mixture, built from weight fractions of elements or compounds
+# (repeat /material/addElement as many times as needed; fractions are
+# normalized automatically, so they don't need to already sum to 1).
+/material/name SAMPLE
+/material/density 1.334335
+/material/addElement C 0.514264
+/material/addElement H 0.073925
+/material/addElement O 0.320019
+/material/addElement N 0.082377
+/material/addElement S 0.009415
+
+# Option B: a single element or compound -- comment out Option A above and
+# uncomment this instead (don't use both at once):
+#/material/name Lead
+#/material/density 11.35
+#/material/formula Pb
+
+# --- Energies / depths ---------------------------------------------------
+/energies 0.1,0.5,1.0,2.0,5.0,10.0
+/depths 1,5,10,20,40
+
+# --- What to compute (comment out any you don't need) --------------------
+/output/massAttenuation sample_mass_attenuation.csv
+/output/hvl sample_hvl_tvl_mfp.csv
+/output/zeff sample_zeff_zeq.csv
+/output/ebf sample_ebf.csv
+/output/eabf sample_eabf.csv
+/output/neutron sample_neutron.csv
