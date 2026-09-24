@@ -1,6 +1,6 @@
-# Data and analysis for: Lead-Free CHONS-Based Biomolecular Mixtures for Photon Attenuation
+# Data and analysis for: Exploring Lead-Free CHONS-Based Biomolecular Mixtures for Photon Attenuation
 
-Supporting data and code for the article *Lead-Free CHONS-Based Biomolecular Mixtures for Photon Attenuation: A Geant4 Monte Carlo and Pearson Correlation Investigation* (M. Y. AlZaatreh and N. Z. Noor Azman). Ten idealized mixtures of alpha-cellulose, bovine serum albumin (BSA), sorbitol and stearic acid (C, H, O, N and 0-1.5 wt% S) were simulated with Geant4 over 0.01-15 MeV.
+Supporting data and code for the article *Exploring Lead-Free CHONS-Based Biomolecular Mixtures for Photon Attenuation: A Sustainable Geant4 Monte-Carlo Investigation* (M. Y. AlZaatreh and N. Z. Noor Azman). Ten idealized mixtures of alpha-cellulose, bovine serum albumin (BSA), sorbitol and stearic acid (C, H, O, N and 0-1.5 wt% S) were simulated with Geant4 over 0.01-15 MeV.
 
 **License:** code (analysis scripts and `epixs_cli/`) under the MIT License (`LICENSE`); data, macros and figure data under CC BY 4.0 (`LICENSE-DATA`). Please cite the article when using this material.
 
